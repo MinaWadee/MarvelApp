@@ -1,12 +1,12 @@
 package com.extremesolution.marvelapp.data.network
 
 import android.content.Context
-import androidx.viewbinding.BuildConfig
 import com.extremesolution.marvelapp.general.changeLanguage.Language
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import com.extremesolution.marvelapp.BuildConfig
 
 class ApiClient {
     companion object {

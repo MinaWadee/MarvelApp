@@ -1,9 +1,9 @@
 package com.extremesolution.marvelapp.ui.base
 
+import com.extremesolution.marvelapp.data.network.Resource
+import com.extremesolution.marvelapp.data.network.UserApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.AGCP_Kotlin.data.network.Resource
-import net.AGCP_Kotlin.data.network.UserApi
 import retrofit2.HttpException
 
 abstract class BaseRepository {

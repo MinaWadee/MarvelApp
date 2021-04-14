@@ -9,13 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelApp">
-        <activity android:name=".appActivities.MainActivity">
+
+        <activity android:name=".appActivities.SplashActivity"
+            android:theme="@style/Theme.SplashMarvelApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".appActivities.MainActivity" />
+
     </application>
 
 </manifest>

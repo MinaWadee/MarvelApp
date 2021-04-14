@@ -1,4 +1,4 @@
-package net.AGCP_Kotlin.general
+package com.extremesolution.marvelapp.general
 
 import android.content.Context
 import android.content.pm.PackageManager

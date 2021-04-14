@@ -2,6 +2,11 @@ package com.extremesolution.marvelapp.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.extremesolution.marvelapp.data.Repositories.MarvelCharacterDetailsRepository
+import com.extremesolution.marvelapp.data.Repositories.MarvelCharactersRepository
+import com.extremesolution.marvelapp.databinding.MarvelCharactersDetailsLayoutBinding
+import com.extremesolution.marvelapp.ui.home.ViewModels.MarvelCharacterDetailsViewModel
+import com.extremesolution.marvelapp.ui.home.ViewModels.MarvelCharactersViewModel
 import java.lang.IllegalArgumentException
 
 @Suppress("UNCHECKED_CAST")
@@ -11,7 +16,8 @@ class ViewModelFactory(
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when {
-           // modelClass.isAssignableFrom(LoginViewModel::class.java) -> LoginViewModel(repository as LoginRepository) as T
+            modelClass.isAssignableFrom(MarvelCharactersViewModel::class.java) -> MarvelCharactersViewModel(repository as MarvelCharactersRepository) as T
+            modelClass.isAssignableFrom(MarvelCharacterDetailsViewModel::class.java) -> MarvelCharacterDetailsViewModel(repository as MarvelCharacterDetailsRepository) as T
             else -> throw IllegalArgumentException("ViewModelClass Not Found")
         }
     }

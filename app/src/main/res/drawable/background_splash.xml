@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/mcu_background"
+            android:alpha="0.1"
+            android:mipMap="true"/>
+    </item>
+
+    <item
+        android:drawable="@color/splash_black_with_opacity"/>
+
+    <item
+        android:width="280dp"
+        android:height="150dp"
+        android:drawable="@drawable/marvel_logo"
+        android:gravity="center" />
+
+</layer-list>

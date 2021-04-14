@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/MarvelCharacterFragment">
+
+    <fragment
+        android:id="@+id/MarvelCharacterFragment"
+        android:name="com.extremesolution.marvelapp.ui.home.MarvelCharactersFragment"
+        android:label="MarvelFragment"
+        tools:layout="@layout/marvel_characters_layout" >
+        <action
+            android:id="@+id/action_MarvelCharacter_to_MarvelCharacterDetails"
+            app:destination="@id/MarvelCharacterDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MarvelCharacterDetailsFragment"
+        android:name="com.extremesolution.marvelapp.ui.home.MarvelCharacterDetailsFragment"
+        android:label="MarvelCharacterDetailsFragment"
+        tools:layout="@layout/marvel_characters_details_layout" >
+        <action
+            android:id="@+id/action_MarvelCharacterDetails_to_MarvelCharacter"
+            app:destination="@id/MarvelCharacterFragment" />
+    </fragment>
+
+</navigation>
