@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
@@ -7,6 +8,7 @@
     android:focusable="true">
 
     <RelativeLayout
+        android:id="@+id/HeaderRLID"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/chracters_header">
@@ -14,26 +16,36 @@
         <ImageView
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:src="@drawable/marvel_logo"
-            android:scaleType="centerCrop"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/marvel_logo" />
 
 
         <ImageView
             android:id="@+id/search_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:scaleType="centerCrop"
+            android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:padding="15dp"
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp" />
+            android:padding="15dp"
+            android:scaleType="centerCrop" />
 
 
     </RelativeLayout>
 
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/MarvelCharactersListRVID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/HeaderRLID"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </RelativeLayout>
