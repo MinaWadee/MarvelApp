@@ -6,11 +6,25 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#000000</color>
-    <color name="black_with_opacity">#66000000</color>
+    <color name="black_with_opacity">#BF000000</color>
+    <color name="Search_bg_black_with_opacity">#BF000000</color>
     <color name="splash_black_with_opacity">#66000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bpTransparent">#00000000</color>
 
     <!--Marvel Characters Plate-->
     <color name="RedColor">#F8131E</color>
+    <color name="CancelColor">#FF898E</color>
+    <!--Search Screen-->
+    <color name="SearchFieldColor">#2D2D2D</color>
+    <color name="white_Search_Icon">#FFFFFFFF</color>
+    <color name="white_Search_Text">#FFFFFFFF</color>
+    <!--Marvel Character Details-->
+    <color name="MarvelDetailsBg">#17232E</color>
+    <color name="detailsArrowBg">#BF17232E</color>
+    <color name="WhiteArrow">#FFFFFF</color>
+    <color name="CharacterNameColor">#FFFFFF</color>
+    <color name="TitlesOfParts">#FF898E</color>
+    <color name="DescriptionTextColor">#FFFFFF</color>
+    <color name="DescriptionAndCharacterNameTextColor">#FFFFFF</color>
 </resources>

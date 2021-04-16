@@ -48,6 +48,7 @@ abstract class BaseFragment<VM : BaseViewModel, FB : ViewBinding, R : BaseReposi
         requireActivity().startNewActivity(MainActivity::class.java)
     }
 
+
     abstract fun getViewModel(): Class<VM>
 
     abstract fun getFragmentBinding(inflater: LayoutInflater, container: ViewGroup?): FB

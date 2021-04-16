@@ -22,9 +22,9 @@ class ApiClient {
                         chain.proceed(chain.request().newBuilder().also {
                             it.addHeader("Authorization", "Bearer $authToken")
                             context?.let { it1 ->
-                                Language.getLanguage(it1)?.let { it1 ->
+                                Language.getLanguage(it1)?.let { locale ->
                                     it.addHeader("locale",
-                                        it1
+                                        locale
                                     )
                                 }
                             }

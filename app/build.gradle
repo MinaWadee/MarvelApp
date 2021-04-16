@@ -16,6 +16,9 @@ android {
         versionName "1.0"
         multiDexEnabled = true
 
+        renderscriptTargetApi 18
+        renderscriptSupportModeEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -95,4 +98,5 @@ dependencies {
     //ViewHolder And DialogPlus
     implementation 'com.orhanobut:dialogplus:1.11@aar'
 
+    implementation 'com.cleveroad.blur_tutorial:blur_tutorial:1.0.1'
 }

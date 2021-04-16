@@ -16,6 +16,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.data.network.startNewActivity
 import jp.wasabeef.glide.transformations.BlurTransformation
+import kotlinx.android.synthetic.main.splach_activity.*
 
 
 class SplashActivity : AppCompatActivity() {
@@ -24,12 +25,11 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splach_activity)
 
-        val imageView = findViewById<ImageView>(R.id.customProfileGridImg)
 
         //To make bg image blur
         Glide.with(this).load(R.drawable.mcu_background)
             .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 3)))
-            .into(imageView)
+            .into(customProfileGridImg)
 
         //Delay transaction
         Handler(Looper.getMainLooper()).postDelayed({

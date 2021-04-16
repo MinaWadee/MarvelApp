@@ -13,6 +13,7 @@
         <action
             android:id="@+id/action_MarvelCharacter_to_MarvelCharacterDetails"
             app:destination="@id/MarvelCharacterDetailsFragment" />
+
     </fragment>
 
     <fragment
@@ -23,6 +24,15 @@
         <action
             android:id="@+id/action_MarvelCharacterDetails_to_MarvelCharacter"
             app:destination="@id/MarvelCharacterFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.extremesolution.marvelapp.ui.search.SearchFragment"
+        android:label="MarvelCharacterDetailsFragment"
+        tools:layout="@layout/marvel_characters_details_layout" >
+
     </fragment>
 
 </navigation>

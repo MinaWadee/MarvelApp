@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MarvelApp</string>
+
+    <!--SearchLayout-->
+    <string name="Cancel">Cancel</string>
+    <string name="SearchHint">Search for character…</string>
+    <!--Marvel Character Details-->
+    <string name="Description">Description</string>
+    <string name="DescriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Placerat vestibulum lectus mauris ultrices eros in. Venenatis urna cursus eget nunc scelerisque. Nisl tincidunt eget nullam non nisi.</string>
 </resources>
