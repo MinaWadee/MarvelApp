@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
-import com.extremesolution.marvelapp.data.models.StoriesModels.Result
-import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesResult
+import com.extremesolution.marvelapp.data.models.StoriesModels.StoriesResult
 import kotlinx.android.synthetic.main.marvel_type_cell_for_adapter_layout.view.*
 
-class MarvelStoriesAdapter(var context: Context, val list: List<Result>) :
+class MarvelStoriesAdapter(var context: Context, val list: List<StoriesResult>) :
     RecyclerView.Adapter<MarvelStoriesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        var view: View = LayoutInflater.from(parent.context)
+        val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.marvel_type_cell_for_adapter_layout, parent, false)
         return ViewHolder(view)
     }

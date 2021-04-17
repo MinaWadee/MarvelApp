@@ -1,8 +1,8 @@
 package com.extremesolution.marvelapp.data.models.StoriesModels
 
-data class Series(
+data class StoriesEvents(
     val available: Int,
     val collectionURI: String,
-    val items: List<ItemXXXX>,
+    val items: List<StoriesItem>,
     val returned: Int
 )

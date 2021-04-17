@@ -3,7 +3,7 @@ package com.extremesolution.marvelapp.ui.home.ViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.extremesolution.marvelapp.data.models.StoriesModels.CharacterStoriesResponse
+import com.extremesolution.marvelapp.data.responses.CharacterStoriesResponse
 import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
 import com.extremesolution.marvelapp.data.network.Resource
 import com.extremesolution.marvelapp.data.responses.ComicsResponse

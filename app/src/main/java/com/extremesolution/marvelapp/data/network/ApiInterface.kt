@@ -1,6 +1,6 @@
 package com.extremesolution.marvelapp.data.network
 
-import com.extremesolution.marvelapp.data.models.StoriesModels.CharacterStoriesResponse
+import com.extremesolution.marvelapp.data.responses.CharacterStoriesResponse
 import com.extremesolution.marvelapp.data.responses.CharacterResponse
 import com.extremesolution.marvelapp.data.responses.ComicsResponse
 import com.extremesolution.marvelapp.data.responses.EventsResponse

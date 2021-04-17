@@ -1,21 +1,16 @@
 package com.extremesolution.marvelapp.ui.home
 
-import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.SeekBar
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.data.models.ComicsModels.ComicsResult
 import com.extremesolution.marvelapp.data.models.EventsModels.EventsResult
-import com.extremesolution.marvelapp.data.models.StoriesModels.Result
+import com.extremesolution.marvelapp.data.models.StoriesModels.StoriesResult
 import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
 import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesResult
 import com.extremesolution.marvelapp.data.network.ApiInterface
@@ -30,7 +25,6 @@ import com.extremesolution.marvelapp.ui.adapters.MarvelStoriesAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
 import com.extremesolution.marvelapp.ui.home.ViewModels.CharacterDetailsViewModel
 import kotlinx.android.synthetic.main.character_details_layout.*
-import kotlinx.android.synthetic.main.search_layout.*
 
 
 class MarvelCharacterDetailsFragment :
@@ -169,7 +163,7 @@ class MarvelCharacterDetailsFragment :
         }
     }
 
-    private fun initializeMarveStoriesAdapter(list: List<Result>) {
+    private fun initializeMarveStoriesAdapter(list: List<StoriesResult>) {
         if (list.size > 0) {
             MarvelStoriesRV.apply {
                 val adapter = MarvelStoriesAdapter(requireContext(), list)

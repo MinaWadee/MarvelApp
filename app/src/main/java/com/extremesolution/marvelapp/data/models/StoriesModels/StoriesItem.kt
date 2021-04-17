@@ -1,6 +1,7 @@
 package com.extremesolution.marvelapp.data.models.StoriesModels
 
-data class Item(
+data class StoriesItem(
     val name: String,
-    val resourceURI: String
+    val resourceURI: String,
+    val role: String
 )
