@@ -16,7 +16,7 @@ class ApiClient {
 
     }
 
-    fun <Api> buildApi(api: Class<Api>, authToken: String? = null, context: Context? = null): Api {
+    fun <Api> buildApi(api: Class<Api>/*, authToken: String? = null, context: Context? = null*/): Api {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(

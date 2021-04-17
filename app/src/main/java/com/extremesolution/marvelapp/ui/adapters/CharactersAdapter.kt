@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.appActivities.MainActivity
 import com.extremesolution.marvelapp.data.models.CharacterModel.CharacterResult
-import com.extremesolution.marvelapp.general.RSBlurProcessor
 import com.extremesolution.marvelapp.ui.home.MarvelCharacterDetailsFragment
 import kotlinx.android.synthetic.main.character_list_for_adapter_layout.view.*
 
@@ -19,7 +18,6 @@ import kotlinx.android.synthetic.main.character_list_for_adapter_layout.view.*
 class CharactersAdapter(var context: Context, val list: List<CharacterResult>, val activity: MainActivity) :
     RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
 
-    val blurImage: RSBlurProcessor? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         var view: View = LayoutInflater.from(parent.context)

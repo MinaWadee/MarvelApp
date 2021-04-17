@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
-import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesResult
+import com.extremesolution.marvelapp.data.models.EventsModel.EventsResult
 import kotlinx.android.synthetic.main.marvel_type_cell_for_adapter_layout.view.*
 
-class MarvelEventsAdapter (var context: Context, val list: List<SeriesResult>) :
+class MarvelEventsAdapter (var context: Context, val list: List<EventsResult>) :
     RecyclerView.Adapter<MarvelEventsAdapter.ViewHolder>() {
 
 

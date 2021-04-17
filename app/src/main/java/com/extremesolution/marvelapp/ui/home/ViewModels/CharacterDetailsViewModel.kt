@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
 import com.extremesolution.marvelapp.data.network.Resource
 import com.extremesolution.marvelapp.data.responses.ComicsResponse
+import com.extremesolution.marvelapp.data.responses.EventsResponse
 import com.extremesolution.marvelapp.data.responses.SeriesResponse
 import com.extremesolution.marvelapp.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
@@ -18,10 +19,10 @@ class CharacterDetailsViewModel(private val repository: CharacterDetailsReposito
     val comicsResponse: LiveData<Resource<ComicsResponse>>
         get() = _comicsResponse
 
-    /*private val _eventsResponse: MutableLiveData<Resource<>> =
+    private val _eventsResponse: MutableLiveData<Resource<EventsResponse>> =
         MutableLiveData()
-    val eventsResponse: LiveData<Resource<>>
-        get() = _eventsResponse*/
+    val eventsResponse: LiveData<Resource<EventsResponse>>
+        get() = _eventsResponse
 
 
     private val _characterSeriesResponse: MutableLiveData<Resource<SeriesResponse>> =
@@ -36,5 +37,8 @@ class CharacterDetailsViewModel(private val repository: CharacterDetailsReposito
 
         _comicsResponse.value = Resource.Loading
         _comicsResponse.value = repository.getComicsList(characterId)
+
+        _eventsResponse.value = Resource.Loading
+        _eventsResponse.value = repository.getEventsList(characterId)
     }
 }

@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.data.models.ComicsModels.ComicsResult
+import com.extremesolution.marvelapp.data.models.EventsModel.EventsResult
 import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
 import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesResult
 import com.extremesolution.marvelapp.data.network.ApiInterface
@@ -17,6 +18,7 @@ import com.extremesolution.marvelapp.data.network.handleApiError
 import com.extremesolution.marvelapp.data.network.visible
 import com.extremesolution.marvelapp.databinding.CharacterDetailsLayoutBinding
 import com.extremesolution.marvelapp.ui.adapters.MarvelComicsAdapter
+import com.extremesolution.marvelapp.ui.adapters.MarvelEventsAdapter
 import com.extremesolution.marvelapp.ui.adapters.MarvelSeriesAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
 import com.extremesolution.marvelapp.ui.home.ViewModels.CharacterDetailsViewModel
@@ -69,12 +71,12 @@ class MarvelCharacterDetailsFragment :
             }
         })
 
-        viewModel.comicsResponse.observe(viewLifecycleOwner, Observer {
+        viewModel.eventsResponse.observe(viewLifecycleOwner, Observer {
             binding.MainLoadingRL.visible(it is Resource.Loading)
 
             when (it) {
                 is Resource.Success -> {
-                    initializeComicMarveTypesAdapter(it.value.data.results)
+                    initializeEventsMarveTypesAdapter(it.value.data.results)
                 }
 
                 is Resource.Loading -> {
@@ -120,6 +122,14 @@ class MarvelCharacterDetailsFragment :
             MarvelComicsRV.adapter = adapter
         }
     }
+
+    private fun initializeEventsMarveTypesAdapter(list: List<EventsResult>) {
+        MarvelEventsRV.apply {
+            val adapter = MarvelEventsAdapter(requireContext(), list)
+            MarvelEventsRV.adapter = adapter
+        }
+    }
+
     private fun initializeMarveTypesAdapter(list: List<SeriesResult>) {
         MarvelSeriesRV.apply {
             val adapter = MarvelSeriesAdapter(requireContext(), list)
