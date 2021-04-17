@@ -1,4 +1,4 @@
-package com.extremesolution.marvelapp.data.models.EventsModel
+package com.extremesolution.marvelapp.data.models.EventsModels
 
 data class EventsItem(
     val name: String,

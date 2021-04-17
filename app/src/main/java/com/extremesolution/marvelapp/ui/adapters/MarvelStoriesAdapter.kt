@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
+import com.extremesolution.marvelapp.data.models.StoriesModels.Result
 import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesResult
 import kotlinx.android.synthetic.main.marvel_type_cell_for_adapter_layout.view.*
 
-class MarvelStoriesAdapter (var context: Context, val list: List<SeriesResult>) :
+class MarvelStoriesAdapter(var context: Context, val list: List<Result>) :
     RecyclerView.Adapter<MarvelStoriesAdapter.ViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         var view: View = LayoutInflater.from(parent.context)
@@ -22,8 +22,9 @@ class MarvelStoriesAdapter (var context: Context, val list: List<SeriesResult>) 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+
         Glide.with(context)
-            .load(list[position].thumbnail.path + "." + list[position].thumbnail.extension)
+            .load(list[position].thumbnail?.path + "." + list[position].thumbnail?.extension)
             .placeholder(R.drawable.image_placeholder).into(holder.itemView.CategoryImgID)
 
         holder.itemView.MarvelCharacterNameAndDesTV.text = list[position].title

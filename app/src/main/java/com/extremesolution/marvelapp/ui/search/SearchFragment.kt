@@ -1,13 +1,16 @@
 package com.extremesolution.marvelapp.ui.search
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
-import com.extremesolution.marvelapp.data.repositories.SearchRepository
 import com.extremesolution.marvelapp.data.network.ApiInterface
+import com.extremesolution.marvelapp.data.repositories.SearchRepository
 import com.extremesolution.marvelapp.databinding.SearchLayoutBinding
 import com.extremesolution.marvelapp.ui.adapters.SearchResultAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
@@ -34,7 +37,19 @@ class SearchFragment : BaseFragment<SearchViewModel, SearchLayoutBinding, Search
 
         Glide.with(requireContext()).load(R.drawable.search_icon).into(search_button)
 
+        //updateRadius()
+
         getSearchResult()
+    }
+
+    private fun updateRadius() {
+        blurView.setBlurRadius(
+            TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+               10f,
+                resources.displayMetrics
+            )
+        )
     }
 
     private fun getSearchResult() {

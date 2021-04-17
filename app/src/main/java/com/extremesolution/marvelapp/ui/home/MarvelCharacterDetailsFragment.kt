@@ -1,15 +1,21 @@
 package com.extremesolution.marvelapp.ui.home
 
+import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.SeekBar
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.data.models.ComicsModels.ComicsResult
-import com.extremesolution.marvelapp.data.models.EventsModel.EventsResult
+import com.extremesolution.marvelapp.data.models.EventsModels.EventsResult
+import com.extremesolution.marvelapp.data.models.StoriesModels.Result
 import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
 import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesResult
 import com.extremesolution.marvelapp.data.network.ApiInterface
@@ -20,9 +26,11 @@ import com.extremesolution.marvelapp.databinding.CharacterDetailsLayoutBinding
 import com.extremesolution.marvelapp.ui.adapters.MarvelComicsAdapter
 import com.extremesolution.marvelapp.ui.adapters.MarvelEventsAdapter
 import com.extremesolution.marvelapp.ui.adapters.MarvelSeriesAdapter
+import com.extremesolution.marvelapp.ui.adapters.MarvelStoriesAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
 import com.extremesolution.marvelapp.ui.home.ViewModels.CharacterDetailsViewModel
 import kotlinx.android.synthetic.main.character_details_layout.*
+import kotlinx.android.synthetic.main.search_layout.*
 
 
 class MarvelCharacterDetailsFragment :
@@ -44,13 +52,7 @@ class MarvelCharacterDetailsFragment :
             .placeholder(R.drawable.image_placeholder)
             .into(CharacterImageID)
 
-        blurImage.setBlurRadius(
-            TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                100f,
-                resources.displayMetrics
-            )
-        )
+
 
         viewModel.comicsResponse.observe(viewLifecycleOwner, Observer {
             binding.MainLoadingRL.visible(it is Resource.Loading)
@@ -61,7 +63,6 @@ class MarvelCharacterDetailsFragment :
                 }
 
                 is Resource.Loading -> {
-
                     binding.MainLoadingRL.visible(true)
                 }
 
@@ -109,6 +110,24 @@ class MarvelCharacterDetailsFragment :
             }
         })
 
+        viewModel.characterStoriesResponse.observe(viewLifecycleOwner, Observer {
+            binding.MainLoadingRL.visible(it is Resource.Loading)
+
+            when (it) {
+                is Resource.Success -> {
+                    initializeMarveStoriesAdapter(it.value.data.results)
+                }
+
+                is Resource.Loading -> {
+                    binding.MainLoadingRL.visible(true)
+                }
+
+                is Resource.Failure -> handleApiError(it) {
+                    loadData(arguments?.getString("CharacterID"))
+                }
+            }
+        })
+
         loadData(arguments?.getString("CharacterID"))
     }
 
@@ -116,24 +135,48 @@ class MarvelCharacterDetailsFragment :
         viewModel.getMarvelSpecialCharacterList(characterID!!)
     }
 
+
     private fun initializeComicMarveTypesAdapter(list: List<ComicsResult>) {
-        MarvelComicsRV.apply {
-            val adapter = MarvelComicsAdapter(requireContext(), list)
-            MarvelComicsRV.adapter = adapter
+        if (list.size > 0) {
+            MarvelComicsRV.apply {
+                val adapter = MarvelComicsAdapter(requireContext(), list)
+                MarvelComicsRV.adapter = adapter
+            }
+        } else {
+            ComicsPartLL.visibility = GONE
         }
     }
 
     private fun initializeEventsMarveTypesAdapter(list: List<EventsResult>) {
-        MarvelEventsRV.apply {
-            val adapter = MarvelEventsAdapter(requireContext(), list)
-            MarvelEventsRV.adapter = adapter
+        if (list.size > 0) {
+            MarvelEventsRV.apply {
+                val adapter = MarvelEventsAdapter(requireContext(), list)
+                MarvelEventsRV.adapter = adapter
+            }
+        } else {
+            EventsPartLL.visibility = GONE
         }
     }
 
     private fun initializeMarveTypesAdapter(list: List<SeriesResult>) {
-        MarvelSeriesRV.apply {
-            val adapter = MarvelSeriesAdapter(requireContext(), list)
-            MarvelSeriesRV.adapter = adapter
+        if (list.size > 0) {
+            MarvelSeriesRV.apply {
+                val adapter = MarvelSeriesAdapter(requireContext(), list)
+                MarvelSeriesRV.adapter = adapter
+            }
+        } else {
+            SeriesPartLL.visibility = GONE
+        }
+    }
+
+    private fun initializeMarveStoriesAdapter(list: List<Result>) {
+        if (list.size > 0) {
+            MarvelStoriesRV.apply {
+                val adapter = MarvelStoriesAdapter(requireContext(), list)
+                MarvelStoriesRV.adapter = adapter
+            }
+        } else {
+            StoriesPartLL.visibility = GONE
         }
     }
 

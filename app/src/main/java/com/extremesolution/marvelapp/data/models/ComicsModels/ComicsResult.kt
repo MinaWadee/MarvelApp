@@ -24,7 +24,7 @@ data class ComicsResult(
     val series: ComicsSeries,
     val stories: ComicsStories,
     val textObjects: List<ComicsTextObject>,
-    val thumbnail: ComicsThumbnail,
+    val thumbnail: ComicsThumbnail? = null,
     val title: String,
     val upc: String,
     val urls: List<ComicsUrl>,

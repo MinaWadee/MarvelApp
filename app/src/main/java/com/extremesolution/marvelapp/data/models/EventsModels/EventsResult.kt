@@ -1,4 +1,4 @@
-package com.extremesolution.marvelapp.data.models.EventsModel
+package com.extremesolution.marvelapp.data.models.EventsModels
 
 data class EventsResult(
     val characters: EventsCharacters,
@@ -14,7 +14,7 @@ data class EventsResult(
     val series: EventsSeries,
     val start: String,
     val stories: EventsStories,
-    val thumbnail: EventsThumbnail,
+    val thumbnail: EventsThumbnail? = null,
     val title: String,
     val urls: List<EventsUrl>
 )

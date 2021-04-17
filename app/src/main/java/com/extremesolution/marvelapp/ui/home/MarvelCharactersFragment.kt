@@ -1,6 +1,9 @@
 package com.extremesolution.marvelapp.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,6 +12,7 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.appActivities.MainActivity
+import com.extremesolution.marvelapp.appActivities.SplashActivity
 import com.extremesolution.marvelapp.data.repositories.MarvelCharactersRepository
 import com.extremesolution.marvelapp.data.models.CharacterModel.CharacterResult
 import com.extremesolution.marvelapp.data.network.ApiInterface
@@ -16,14 +20,20 @@ import com.extremesolution.marvelapp.data.network.Resource
 import com.extremesolution.marvelapp.data.network.handleApiError
 import com.extremesolution.marvelapp.data.network.visible
 import com.extremesolution.marvelapp.databinding.MarvelCharactersLayoutBinding
+import com.extremesolution.marvelapp.general.changeLanguage.AppConstants
+import com.extremesolution.marvelapp.general.changeLanguage.Language.selectedLanguage
+import com.extremesolution.marvelapp.general.changeLanguage.LanguageType
 import com.extremesolution.marvelapp.ui.adapters.CharactersAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
 import com.extremesolution.marvelapp.ui.home.ViewModels.MarvelCharactersViewModel
 import com.extremesolution.marvelapp.ui.search.SearchFragment
 import com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener
 import kotlinx.android.synthetic.main.marvel_characters_layout.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
+@Suppress("DEPRECATION")
 class MarvelCharactersFragment :
     BaseFragment<MarvelCharactersViewModel, MarvelCharactersLayoutBinding, MarvelCharactersRepository>() {
 
@@ -96,6 +106,10 @@ class MarvelCharactersFragment :
             replace(SearchFragment.newInstance())
         }
 
+        binding.changeLanguageTV.setOnClickListener {
+            changeLanguage()
+        }
+
         //Call the API
         loadData(currentPage.toString().trim())
     }
@@ -106,6 +120,8 @@ class MarvelCharactersFragment :
 
     private fun replace(fragment: Fragment) {
         (activity as MainActivity).replaceFragment(fragment, R.id.rlParent,
+            /* sendingData = true,
+           bundle = data,*/
             inAnimRes = R.anim.slide_in_right.takeIf { true } ?: R.anim.slide_in_left,
             outAnimRes = R.anim.slide_out_left.takeIf { true }
                 ?: R.anim.slide_out_right)
@@ -140,6 +156,54 @@ class MarvelCharactersFragment :
         }
     }
 
+    private fun changeLanguage() {
+        val lang = userPreferences.appLanguage
+        val languageType = LanguageType()
+        val config = Configuration()
+
+        if (lang == "english") {
+            languageType.languageType = AppConstants.Arabic
+            userPreferences.saveLang("APP_LANGUAGE", languageType.languageType)
+            val arLocale = Locale("ar")
+            config.locale = arLocale
+            resources.updateConfiguration(config, resources.displayMetrics)
+            selectedLanguage = AppConstants.Arabic
+            val res = requireContext().resources
+
+            // Change locale settings in the app.
+            val dm = res.displayMetrics
+            val conf = res.configuration
+            conf.locale = Locale("ar")
+            if (Build.VERSION.SDK_INT >= 25) {
+                requireContext().applicationContext.createConfigurationContext(conf)
+                requireContext().createConfigurationContext(conf)
+
+            }
+            res.updateConfiguration(conf, dm)
+        } else {
+            languageType.languageType = AppConstants.English
+            userPreferences.saveLang("APP_LANGUAGE", languageType.languageType)
+            config.locale = Locale.ENGLISH
+            resources.updateConfiguration(config, resources.displayMetrics)
+            selectedLanguage = AppConstants.English
+            val res = requireContext().resources
+
+            // Change locale settings in the app.
+            val dm = res.displayMetrics
+            val conf = res.configuration
+            conf.locale = Locale.ENGLISH
+            if (Build.VERSION.SDK_INT >= 25) {
+                requireContext().applicationContext.createConfigurationContext(conf)
+                requireContext().createConfigurationContext(conf)
+            }
+            res.updateConfiguration(conf, dm)
+        }
+
+        //Language.setFont(requireContext())
+        val intent = Intent(activity, SplashActivity::class.java)
+        activity?.finish()
+        this.startActivity(intent)
+    }
 
     override fun getViewModel(): Class<MarvelCharactersViewModel> =
         MarvelCharactersViewModel::class.java
@@ -150,3 +214,4 @@ class MarvelCharactersFragment :
     override fun getFragmentRepository(): MarvelCharactersRepository =
         MarvelCharactersRepository(apiClient.buildApi(ApiInterface::class.java))
 }
+

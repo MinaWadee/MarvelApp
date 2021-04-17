@@ -1,5 +1,6 @@
 package com.extremesolution.marvelapp.data.network
 
+import com.extremesolution.marvelapp.data.models.StoriesModels.CharacterStoriesResponse
 import com.extremesolution.marvelapp.data.responses.CharacterResponse
 import com.extremesolution.marvelapp.data.responses.ComicsResponse
 import com.extremesolution.marvelapp.data.responses.EventsResponse
@@ -25,13 +26,13 @@ interface ApiInterface {
         @Path("id") characterId: String
     ): EventsResponse
 
-    @GET("characters/{id}/stories")
-    suspend fun characterStories(
-        @Path("id") characterId: String
-    ): CharacterResponse
-
     @GET("characters/{id}/series")
     suspend fun characterSeries(
         @Path("id") characterId: String
     ): SeriesResponse
+
+    @GET("characters/{id}/stories")
+    suspend fun characterStories(
+        @Path("id") characterId: String
+    ): CharacterStoriesResponse
 }

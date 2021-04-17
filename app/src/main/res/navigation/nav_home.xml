@@ -20,7 +20,7 @@
         android:id="@+id/MarvelCharacterDetailsFragment"
         android:name="com.extremesolution.marvelapp.ui.home.MarvelCharacterDetailsFragment"
         android:label="MarvelCharacterDetailsFragment"
-        tools:layout="@layout/marvel_characters_details_layout" >
+        tools:layout="@layout/character_details_layout" >
         <action
             android:id="@+id/action_MarvelCharacterDetails_to_MarvelCharacter"
             app:destination="@id/MarvelCharacterFragment" />
@@ -31,7 +31,7 @@
         android:id="@+id/SearchFragment"
         android:name="com.extremesolution.marvelapp.ui.search.SearchFragment"
         android:label="MarvelCharacterDetailsFragment"
-        tools:layout="@layout/marvel_characters_details_layout" >
+        tools:layout="@layout/search_layout" >
 
     </fragment>
 

@@ -3,38 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:alpha="0.9"
-    android:fitsSystemWindows="true"
+    android:background="@color/black_with_opacity"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical">
 
 
-    <RelativeLayout
+    <com.github.mmin18.widget.RealtimeBlurView
+        android:id="@+id/blurImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom">
+        app:realtimeOverlayColor="#aa17232E" />
 
-        <com.github.mmin18.widget.RealtimeBlurView
-            android:id="@+id/blurImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:realtimeBlurRadius="100dp" />
 
-    </RelativeLayout>
-
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/bpTransparent"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
 
             <androidx.cardview.widget.CardView
+                style="@style/CustomCardViewStyle"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                style="@style/CustomCardViewStyle">
+                android:layout_height="250dp">
 
                 <ImageView
                     android:id="@+id/CharacterImageID"
@@ -47,143 +45,204 @@
                     android:id="@+id/BackButtonRl"
                     android:layout_width="55dp"
                     android:layout_height="30dp"
+                    android:layout_marginTop="50dp"
                     android:background="@drawable/back_button_in_character_details_bg"
-                    android:layout_marginTop="50dp">
+                    android:rotationY="@integer/locale_mirror_flip">
 
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
+                        android:layout_centerInParent="true"
+                        android:rotationY="@integer/locale_mirror_flip"
                         android:src="@drawable/back_arrow_black"
-                        app:tint="@color/WhiteArrow"
-                        android:layout_centerInParent="true"/>
+                        app:tint="@color/WhiteArrow" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/CharacterNameTV"
-                android:textColor="@color/CharacterNameColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
                 android:text="Ulton"
+                android:textColor="@color/CharacterNameColor"
                 android:textSize="23sp"
-                android:textStyle="bold"
-                android:layout_marginTop="25dp"/>
+                android:textStyle="bold" />
 
             <TextView
-                android:textColor="@color/TitlesOfParts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/Description"
+                android:textColor="@color/TitlesOfParts"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/DescriptionOfTheCharacterTV"
-                android:textColor="@color/DescriptionTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:text="@string/DescriptionText"
                 android:layout_marginEnd="15dp"
-                android:textSize="12sp"/>
+                android:text="@string/DescriptionText"
+                android:textColor="@color/DescriptionTextColor"
+                android:textSize="12sp" />
 
-           <!-- <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/MarvelTypesRV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="true"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="vertical"/>-->
+            <!-- <androidx.recyclerview.widget.RecyclerView
+                 android:id="@+id/MarvelTypesRV"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:nestedScrollingEnabled="true"
+                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                 android:orientation="vertical"/>-->
 
-            <TextView
-                android:textColor="@color/TitlesOfParts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="Series"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/MarvelComicsRV"
+            <RelativeLayout
+                android:id="@+id/ComicsPartLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="true"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:clipToPadding="false"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:textColor="@color/TitlesOfParts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="Series"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/TitleOfSComics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/Comics"
+                    android:textColor="@color/TitlesOfParts"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/MarvelEventsRV"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/MarvelComicsRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TitleOfSComics"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="horizontal"
+                    android:paddingStart="15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/EventsPartLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="true"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:clipToPadding="false"/>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/TitleOfEvents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/Events"
+                    android:textColor="@color/TitlesOfParts"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/MarvelEventsRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TitleOfEvents"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="horizontal"
+                    android:paddingStart="15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </RelativeLayout>
 
 
-            <TextView
-                android:textColor="@color/TitlesOfParts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="Series"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/MarvelSeriesRV"
+            <RelativeLayout
+                android:id="@+id/SeriesPartLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="true"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:clipToPadding="false"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:textColor="@color/TitlesOfParts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="Series"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/TitleOfSeries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/Series"
+                    android:textColor="@color/TitlesOfParts"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/MarvelStoriesRV"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/MarvelSeriesRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TitleOfSeries"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="horizontal"
+                    android:paddingStart="15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/SeriesLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/white"
+                    app:indicatorName="BallClipRotatePulseIndicator" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/StoriesPartLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="true"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:clipToPadding="false"/>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/TitleOfStories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/Stories"
+                    android:textColor="@color/TitlesOfParts"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/MarvelStoriesRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TitleOfStories"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="horizontal"
+                    android:paddingStart="15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/StoriesLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/white"
+                    app:indicatorName="BallClipRotatePulseIndicator" />
+
+            </RelativeLayout>
+
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 
     <RelativeLayout
@@ -203,7 +262,6 @@
             app:indicatorName="BallClipRotatePulseIndicator" />
 
     </RelativeLayout>
-
 
 
 </RelativeLayout>

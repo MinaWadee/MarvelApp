@@ -8,57 +8,77 @@
     android:id="@+id/SearchMainLayoutID"
     android:background="@color/black_with_opacity">
 
+    <RelativeLayout
+        android:id="@+id/blur_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:layout_centerInParent="true">
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/blurView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeOverlayColor="#8000"/>
+
+    </RelativeLayout>
+
+   <!-- <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BF000000"/>-->
+
+
 
     <RelativeLayout
         android:id="@+id/SearchContainerRL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@drawable/search_bg"
-        android:layout_toStartOf="@+id/CancelSearchTVID"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:elevation="1dp">
-
-
-        <ImageView
-            android:id="@+id/search_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:padding="15dp"
-            android:scaleType="centerCrop"
-            app:tint="@color/white_Search_Icon"/>
-
-        <EditText
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/white_Search_Text"
+            android:layout_height="70dp"
+            android:background="@drawable/search_bg"
+            android:layout_toStartOf="@+id/CancelSearchTVID"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:elevation="1dp">
+
+
+            <ImageView
+                android:id="@+id/search_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="15dp"
+                android:scaleType="centerCrop"
+                app:tint="@color/white_Search_Icon"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white_Search_Text"
+                android:layout_centerVertical="true"
+                android:hint="@string/SearchHint"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:backgroundTint="@color/bpTransparent"
+                android:textColorHint="@color/white_Search_Text"
+                android:layout_toEndOf="@+id/search_button"
+                android:textSize="15sp"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/CancelSearchTVID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/Cancel"
             android:layout_centerVertical="true"
-            android:hint="@string/SearchHint"
-            android:gravity="center_vertical"
-            android:inputType="text"
-            android:backgroundTint="@color/bpTransparent"
-            android:textColorHint="@color/white_Search_Text"
-            android:layout_toEndOf="@+id/search_button"
-            android:textSize="15sp"/>
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/CancelSearchTVID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/Cancel"
-        android:layout_centerVertical="true"
-        android:textColor="@color/CancelColor"
-        android:textSize="16sp" />
+            android:textColor="@color/CancelColor"
+            android:textSize="16sp" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -69,6 +89,7 @@
         android:orientation="vertical"
         android:layout_below="@+id/SearchContainerRL"
         android:paddingTop="10dp"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        android:visibility="gone"/>
 
 </RelativeLayout>

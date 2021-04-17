@@ -36,6 +36,17 @@
             android:scaleType="centerCrop"
             app:tint="@color/RedColor"/>
 
+        <TextView
+            android:id="@+id/changeLanguageTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:text="@string/Arabic"
+            android:textColor="@color/RedColor"
+            android:textSize="13sp"
+            android:layout_marginStart="15dp" />
+
 
     </RelativeLayout>
 

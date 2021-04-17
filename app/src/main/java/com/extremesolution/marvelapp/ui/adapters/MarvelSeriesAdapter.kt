@@ -23,7 +23,7 @@ class MarvelSeriesAdapter(var context: Context, val list: List<SeriesResult>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         Glide.with(context)
-            .load(list[position].thumbnail.path + "." + list[position].thumbnail.extension)
+            .load(list[position].thumbnail?.path + "." + list[position].thumbnail?.extension)
             .placeholder(R.drawable.image_placeholder).into(holder.itemView.CategoryImgID)
 
         holder.itemView.MarvelCharacterNameAndDesTV.text = list[position].title

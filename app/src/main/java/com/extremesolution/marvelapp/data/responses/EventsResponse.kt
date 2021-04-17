@@ -1,6 +1,6 @@
 package com.extremesolution.marvelapp.data.responses
 
-import com.extremesolution.marvelapp.data.models.EventsModel.EventsData
+import com.extremesolution.marvelapp.data.models.EventsModels.EventsData
 
 data class EventsResponse(
     val attributionHTML: String,

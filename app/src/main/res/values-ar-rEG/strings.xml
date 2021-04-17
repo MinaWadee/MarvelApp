@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MarvelApp</string>
+    <string name="app_name">AGCP</string>
 
     <!--SearchLayout-->
     <string name="Cancel">Cancel</string>
@@ -11,6 +11,6 @@
     <string name="Series">Series</string>
     <string name="Stories">Stories</string>
     <string name="DescriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Placerat vestibulum lectus mauris ultrices eros in. Venenatis urna cursus eget nunc scelerisque. Nisl tincidunt eget nullam non nisi.</string>
-    <string name="Arabic"><b>Lang (Arabic)</b></string>
+    <string name="Arabic"><b>اللغة (الانجليزية)</b></string>
 
 </resources>

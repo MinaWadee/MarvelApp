@@ -1,6 +1,6 @@
-package com.extremesolution.marvelapp.data.models.EventsModel
+package com.extremesolution.marvelapp.data.models.EventsModels
 
-data class EventsCharacters(
+data class EventsComics(
     val available: Int,
     val collectionURI: String,
     val items: List<EventsItem>,

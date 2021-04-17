@@ -15,7 +15,7 @@ data class SeriesResult(
     val resourceURI: String,
     val startYear: Int,
     val stories: SeriesStories,
-    val thumbnail: SeriesThumbnail,
+    val thumbnail: SeriesThumbnail? = null,
     val title: String,
     val type: String,
     val urls: List<SeriesUrl>
