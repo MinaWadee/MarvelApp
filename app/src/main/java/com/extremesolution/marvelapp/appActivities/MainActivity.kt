@@ -26,10 +26,13 @@ class MainActivity : AppCompatActivity() {
     fun replaceFragment(
         fragment: Fragment, containerId: Int,
         needToAddToBackStack: Boolean = false,
+        sendingData: Boolean = false,
+        bundle: Bundle? = null,
         @AnimatorRes inAnimRes: Int = 0,
         @AnimatorRes outAnimRes: Int = 0
     ) {
         val name = fragment.javaClass.simpleName
+            if (sendingData) fragment.arguments = bundle
         supportFragmentManager.beginTransaction().apply {
             if (inAnimRes != 0 || outAnimRes != 0) setCustomAnimations(inAnimRes, outAnimRes)
             replace(containerId, fragment, name)

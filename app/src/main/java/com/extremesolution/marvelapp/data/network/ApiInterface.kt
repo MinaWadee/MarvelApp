@@ -1,14 +1,35 @@
 package com.extremesolution.marvelapp.data.network
 
+import com.extremesolution.marvelapp.data.responses.CharacterResponse
+import com.extremesolution.marvelapp.data.responses.SeriesResponse
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+
 interface ApiInterface {
 
-/*
-    @FormUrlEncoded
-    @POST("user/login")
-    suspend fun login(
-        @Field("email") email: String, @Field("password") password: String,
-        @Field("device_id") device_id: String
-    ): LoginResponse
-*/
+    @GET("characters")
+    suspend fun characterList(
+        @Query("offset") page: String, @Query("limit") limit: String
+    ): CharacterResponse
 
+    @GET("characters/{id}/stories")
+    suspend fun characterStories(
+        @Path("id") characterId: Int
+    ): CharacterResponse
+
+    @GET("characters/{id}/comics")
+    suspend fun characterComics(
+        @Path("id") characterId: Int
+    ): CharacterResponse
+
+    @GET("characters/{id}/events")
+    suspend fun characterEvents(
+        @Path("id") characterId: Int
+    ): CharacterResponse
+
+    @GET("characters/{id}/series")
+    suspend fun characterSeries(
+        @Path("id") characterId: String
+    ): SeriesResponse
 }

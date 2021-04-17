@@ -2,10 +2,12 @@ package com.extremesolution.marvelapp.data.storage
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.app.NavUtils
 import androidx.datastore.DataStore
 import androidx.datastore.preferences.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.security.PrivateKey
 
 class UserPreferences(context: Context) {
 
@@ -50,10 +52,25 @@ class UserPreferences(context: Context) {
         editor.apply()
     }
 
+    fun savePrivateKey(SHARED_PREF_NAME: String, privateKey: String){
+        val sharedPreferences: SharedPreferences =
+            applicationContext.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        val editor = sharedPreferences.edit()
+        editor.putString("Language",privateKey)
+        editor.apply()
+    }
+
     val appLanguage:String
         get() {
             val sharedPreferences = applicationContext.getSharedPreferences("APP_LANGUAGE",Context.MODE_PRIVATE)
             return sharedPreferences.getString("Language","english")!!
+        }
+
+    val privateKey:String
+        get() {
+            val sharedPreferences = applicationContext.getSharedPreferences("PRIVATE_KEY",Context.MODE_PRIVATE)
+            return sharedPreferences.getString("Language",null)!!
         }
 
     companion object {

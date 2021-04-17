@@ -10,7 +10,10 @@ import com.extremesolution.marvelapp.BuildConfig
 
 class ApiClient {
     companion object {
-        private const val BASE_URL = "http://gateway.marvel.com/"
+        private const val BASE_URL = "http://gateway.marvel.com/v1/public/"
+        private const val PUBLIC_KEY = "9333873d373415a7c79a9a9a7064c036"
+        private const val PRIVATE_KEY = "63462df3789dfd735cb8390ffab4e1cbea16707b"
+
     }
 
     fun <Api> buildApi(api: Class<Api>, authToken: String? = null, context: Context? = null): Api {
@@ -18,18 +21,7 @@ class ApiClient {
             .baseUrl(BASE_URL)
             .client(
                 OkHttpClient.Builder()
-                    .addInterceptor { chain ->
-                        chain.proceed(chain.request().newBuilder().also {
-                            it.addHeader("Authorization", "Bearer $authToken")
-                            context?.let { it1 ->
-                                Language.getLanguage(it1)?.let { locale ->
-                                    it.addHeader("locale",
-                                        locale
-                                    )
-                                }
-                            }
-                        }.build())
-                    }.also { client ->
+                    .addInterceptor(TokenInterceptor(PUBLIC_KEY,PRIVATE_KEY, System.currentTimeMillis().toString())).also { client ->
                         if (BuildConfig.DEBUG) {
                             val logging = HttpLoggingInterceptor()
                             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -41,4 +33,5 @@ class ApiClient {
             .build()
             .create(api)
     }
+
 }

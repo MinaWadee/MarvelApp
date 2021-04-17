@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
+import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.Result
 import kotlinx.android.synthetic.main.marvel_type_cell_for_adapter_layout.view.*
 
-class MarvelOneCharacterAdapter(var context: Context) :
+class MarvelOneCharacterAdapter(var context: Context, val list: List<Result>) :
     RecyclerView.Adapter<MarvelOneCharacterAdapter.ViewHolder>() {
 
 
@@ -21,14 +22,16 @@ class MarvelOneCharacterAdapter(var context: Context) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Glide.with(context).load(R.drawable.mcu_background)
+        Glide.with(context)
+            .load(list[position].thumbnail.path + "." + list[position].thumbnail.extension)
             .placeholder(R.drawable.image_placeholder).into(holder.itemView.CategoryImgID)
 
+        holder.itemView.MarvelCharacterNameAndDesTV.text = list[position].title
 
     }
 
     override fun getItemCount(): Int {
-        return 7
+        return list.size
     }
 
     class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
