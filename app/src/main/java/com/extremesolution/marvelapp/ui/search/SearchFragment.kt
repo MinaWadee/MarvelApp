@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
-import com.extremesolution.marvelapp.data.Repositories.SearchRepository
+import com.extremesolution.marvelapp.data.repositories.SearchRepository
 import com.extremesolution.marvelapp.data.network.ApiInterface
 import com.extremesolution.marvelapp.databinding.SearchLayoutBinding
-import com.extremesolution.marvelapp.ui.adapters.MarvelTypesAdapter
 import com.extremesolution.marvelapp.ui.adapters.SearchResultAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
 import com.extremesolution.marvelapp.ui.home.MarvelCharactersFragment
-import kotlinx.android.synthetic.main.character_details_layout.*
 import kotlinx.android.synthetic.main.search_layout.*
 
 

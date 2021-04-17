@@ -2,11 +2,10 @@ package com.extremesolution.marvelapp.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.extremesolution.marvelapp.data.Repositories.CharacterDetailsRepository
-import com.extremesolution.marvelapp.data.Repositories.MarvelCharacterDetailsRepository
-import com.extremesolution.marvelapp.data.Repositories.MarvelCharactersRepository
-import com.extremesolution.marvelapp.data.Repositories.SearchRepository
-import com.extremesolution.marvelapp.databinding.MarvelCharactersDetailsLayoutBinding
+import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
+import com.extremesolution.marvelapp.data.repositories.MarvelCharacterDetailsRepository
+import com.extremesolution.marvelapp.data.repositories.MarvelCharactersRepository
+import com.extremesolution.marvelapp.data.repositories.SearchRepository
 import com.extremesolution.marvelapp.ui.home.ViewModels.CharacterDetailsViewModel
 import com.extremesolution.marvelapp.ui.home.ViewModels.MarvelCharacterDetailsViewModel
 import com.extremesolution.marvelapp.ui.home.ViewModels.MarvelCharactersViewModel

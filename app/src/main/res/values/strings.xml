@@ -6,5 +6,9 @@
     <string name="SearchHint">Search for character…</string>
     <!--Marvel Character Details-->
     <string name="Description">Description</string>
+    <string name="Comics">Comics</string>
+    <string name="Events">Events</string>
+    <string name="Series">Series</string>
+    <string name="Stories">Stories</string>
     <string name="DescriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Placerat vestibulum lectus mauris ultrices eros in. Venenatis urna cursus eget nunc scelerisque. Nisl tincidunt eget nullam non nisi.</string>
 </resources>

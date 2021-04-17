@@ -18,7 +18,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/TitleOfMarvelTypeTV"
-        android:id="@+id/MarvelSpecialTypeRV"
+        android:id="@+id/MarvelSeriesRV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="true"

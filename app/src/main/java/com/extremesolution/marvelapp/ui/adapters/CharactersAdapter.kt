@@ -8,17 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.appActivities.MainActivity
-import com.extremesolution.marvelapp.data.models.CharacterModel.Result
+import com.extremesolution.marvelapp.data.models.CharacterModel.CharacterResult
 import com.extremesolution.marvelapp.general.RSBlurProcessor
 import com.extremesolution.marvelapp.ui.home.MarvelCharacterDetailsFragment
-import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.character_list_for_adapter_layout.view.*
 
 
-class CharactersAdapter(var context: Context, val list: List<Result>, val activity: MainActivity) :
+class CharactersAdapter(var context: Context, val list: List<CharacterResult>, val activity: MainActivity) :
     RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
 
     val blurImage: RSBlurProcessor? = null
@@ -32,11 +30,11 @@ class CharactersAdapter(var context: Context, val list: List<Result>, val activi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
 
-        //To make bg image blur
+        /*//To make bg image blur
         Glide.with(context)
             .load(list[position].thumbnail.path + "." + list[position].thumbnail.extension)
             .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 3)))
-            .into(holder.itemView.MarvelTextBG)
+            .into(holder.itemView.MarvelTextBG)*/
 
         Glide.with(context)
             .load(list[position].thumbnail.path + "." + list[position].thumbnail.extension)

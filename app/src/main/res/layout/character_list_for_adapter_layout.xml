@@ -20,12 +20,18 @@
         android:layout_height="40dp"
         android:layout_gravity="bottom">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/MarvelTextBG"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/solid_black"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop" />-->
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="20dp"
+            app:realtimeOverlayColor="#8000" />
 
         <!--<View
             android:layout_width="match_parent"

@@ -17,7 +17,7 @@ class TokenInterceptor(
             .addQueryParameter("apikey", publicKey)
             .addQueryParameter("ts", ts)
             .addQueryParameter("hash", hash).build()
-        Log.e("URL", "?apikey=" + publicKey + "&ts=" + ts + "&hash=" + hash)
+        Log.d("URL", "?apikey=" + publicKey + "&ts=" + ts + "&hash=" + hash)
         original = original.newBuilder().url(url).build()
         return chain.proceed(original)
     }

@@ -9,8 +9,8 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.appActivities.MainActivity
-import com.extremesolution.marvelapp.data.Repositories.MarvelCharactersRepository
-import com.extremesolution.marvelapp.data.models.CharacterModel.Result
+import com.extremesolution.marvelapp.data.repositories.MarvelCharactersRepository
+import com.extremesolution.marvelapp.data.models.CharacterModel.CharacterResult
 import com.extremesolution.marvelapp.data.network.ApiInterface
 import com.extremesolution.marvelapp.data.network.Resource
 import com.extremesolution.marvelapp.data.network.handleApiError
@@ -31,7 +31,7 @@ class MarvelCharactersFragment :
     var lastPage: Int = -1
 
     //var characterList: List<Result>? = null
-    val characterList: MutableList<Result> = ArrayList()
+    val characterList: MutableList<CharacterResult> = ArrayList()
     var Adapter: CharactersAdapter? = null
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -112,7 +112,7 @@ class MarvelCharactersFragment :
     }
 
 
-    private fun updateMarvelList(list: List<Result>) {
+    private fun updateMarvelList(list: List<CharacterResult>) {
 
         if (currentPage == 0) {
             characterList.addAll(list)

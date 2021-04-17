@@ -1,13 +1,13 @@
 package com.extremesolution.marvelapp.data.responses
 
-import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesData
+import com.extremesolution.marvelapp.data.models.ComicsModels.ComicsData
 
-data class SeriesResponse(
+data class ComicsResponse(
     val attributionHTML: String,
     val attributionText: String,
     val code: Int,
     val copyright: String,
-    val data: SeriesData,
+    val `data`: ComicsData,
     val etag: String,
     val status: String
 )

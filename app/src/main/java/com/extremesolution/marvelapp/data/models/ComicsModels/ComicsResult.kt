@@ -1,0 +1,33 @@
+package com.extremesolution.marvelapp.data.models.ComicsModels
+
+data class ComicsResult(
+    val characters: ComicsCharacters,
+    val collectedIssues: List<Any>,
+    val collections: List<Any>,
+    val creators: ComicsCreators,
+    val dates: List<ComicsDate>,
+    val description: String,
+    val diamondCode: String,
+    val digitalId: Int,
+    val ean: String,
+    val events: ComicsEvents,
+    val format: String,
+    val id: Int,
+    val images: List<ComicsImage>,
+    val isbn: String,
+    val issn: String,
+    val issueNumber: Int,
+    val modified: String,
+    val pageCount: Int,
+    val prices: List<ComicsPrice>,
+    val resourceURI: String,
+    val series: ComicsSeries,
+    val stories: ComicsStories,
+    val textObjects: List<ComicsTextObject>,
+    val thumbnail: ComicsThumbnail,
+    val title: String,
+    val upc: String,
+    val urls: List<ComicsUrl>,
+    val variantDescription: String,
+    val variants: List<ComicsVariant>
+)

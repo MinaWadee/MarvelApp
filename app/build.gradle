@@ -98,5 +98,5 @@ dependencies {
     //ViewHolder And DialogPlus
     implementation 'com.orhanobut:dialogplus:1.11@aar'
 
-    implementation 'com.cleveroad.blur_tutorial:blur_tutorial:1.0.1'
+    implementation 'com.github.mmin18:realtimeblurview:1.2.1'
 }

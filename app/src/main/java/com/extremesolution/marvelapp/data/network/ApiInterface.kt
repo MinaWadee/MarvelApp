@@ -1,6 +1,7 @@
 package com.extremesolution.marvelapp.data.network
 
 import com.extremesolution.marvelapp.data.responses.CharacterResponse
+import com.extremesolution.marvelapp.data.responses.ComicsResponse
 import com.extremesolution.marvelapp.data.responses.SeriesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,17 +16,17 @@ interface ApiInterface {
 
     @GET("characters/{id}/stories")
     suspend fun characterStories(
-        @Path("id") characterId: Int
+        @Path("id") characterId: String
     ): CharacterResponse
 
     @GET("characters/{id}/comics")
     suspend fun characterComics(
-        @Path("id") characterId: Int
-    ): CharacterResponse
+        @Path("id") characterId: String
+    ): ComicsResponse
 
     @GET("characters/{id}/events")
     suspend fun characterEvents(
-        @Path("id") characterId: Int
+        @Path("id") characterId: String
     ): CharacterResponse
 
     @GET("characters/{id}/series")
