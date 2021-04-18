@@ -76,5 +76,5 @@ Marvel-Mobile app is built on Android. If you are new in Android, please head ov
 
 
 # License & copyright
-
+© Mina Wadee, Android Developer
 Licensed under the [MIT License](LICENSE).
