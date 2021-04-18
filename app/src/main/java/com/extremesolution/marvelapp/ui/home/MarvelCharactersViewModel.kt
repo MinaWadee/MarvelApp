@@ -1,8 +1,9 @@
-package com.extremesolution.marvelapp.ui.home.ViewModels
+package com.extremesolution.marvelapp.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.extremesolution.marvelapp.data.models.CharacterModel.CharacterResult
 import com.extremesolution.marvelapp.data.repositories.MarvelCharactersRepository
 import com.extremesolution.marvelapp.data.network.Resource
 import com.extremesolution.marvelapp.data.responses.CharacterResponse

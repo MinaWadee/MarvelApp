@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/MarvelCharacterDetailsFragment"
-        android:name="com.extremesolution.marvelapp.ui.home.MarvelCharacterDetailsFragment"
+        android:name="com.extremesolution.marvelapp.ui.characterDetails.MarvelCharacterDetailsFragment"
         android:label="MarvelCharacterDetailsFragment"
         tools:layout="@layout/character_details_layout" >
         <action

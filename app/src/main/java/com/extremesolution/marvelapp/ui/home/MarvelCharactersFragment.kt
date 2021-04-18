@@ -9,26 +9,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.appActivities.MainActivity
 import com.extremesolution.marvelapp.appActivities.SplashActivity
-import com.extremesolution.marvelapp.data.repositories.MarvelCharactersRepository
 import com.extremesolution.marvelapp.data.models.CharacterModel.CharacterResult
 import com.extremesolution.marvelapp.data.network.ApiInterface
 import com.extremesolution.marvelapp.data.network.Resource
 import com.extremesolution.marvelapp.data.network.handleApiError
 import com.extremesolution.marvelapp.data.network.visible
+import com.extremesolution.marvelapp.data.repositories.MarvelCharactersRepository
 import com.extremesolution.marvelapp.databinding.MarvelCharactersLayoutBinding
 import com.extremesolution.marvelapp.general.changeLanguage.AppConstants
 import com.extremesolution.marvelapp.general.changeLanguage.Language.selectedLanguage
 import com.extremesolution.marvelapp.general.changeLanguage.LanguageType
 import com.extremesolution.marvelapp.ui.adapters.CharactersAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
-import com.extremesolution.marvelapp.ui.home.ViewModels.MarvelCharactersViewModel
 import com.extremesolution.marvelapp.ui.search.SearchFragment
+import com.extremesolution.marvelapp.ui.search.SearchViewModel
 import com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener
 import kotlinx.android.synthetic.main.marvel_characters_layout.*
+import java.io.Serializable
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -40,7 +42,6 @@ class MarvelCharactersFragment :
     var currentPage: Int = 0
     var lastPage: Int = -1
 
-    //var characterList: List<Result>? = null
     val characterList: MutableList<CharacterResult> = ArrayList()
     var Adapter: CharactersAdapter? = null
 
@@ -48,9 +49,7 @@ class MarvelCharactersFragment :
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
         Glide.with(requireContext()).load(R.drawable.search_icon).into(binding.searchButton)
-
 
         viewModel.characterResponse.observe(viewLifecycleOwner, Observer {
             // binding.MainLoadingRL.visible(it is Resource.Loading)
@@ -103,7 +102,10 @@ class MarvelCharactersFragment :
         })
 
         search_button.setOnClickListener {
-            replace(SearchFragment.newInstance())
+            var bundle = Bundle()
+            bundle.putSerializable("SearchList", characterList as ArrayList<CharacterResult>)
+
+            replace(SearchFragment.newInstance(),bundle)
         }
 
         binding.changeLanguageTV.setOnClickListener {
@@ -118,10 +120,11 @@ class MarvelCharactersFragment :
         viewModel.characterList(currentPage, "10")
     }
 
-    private fun replace(fragment: Fragment) {
+    private fun replace(fragment: Fragment,data: Bundle) {
         (activity as MainActivity).replaceFragment(fragment, R.id.rlParent,
-            /* sendingData = true,
-           bundle = data,*/
+             sendingData = true,
+           bundle = data,
+            needToAddToBackStack = true,
             inAnimRes = R.anim.slide_in_right.takeIf { true } ?: R.anim.slide_in_left,
             outAnimRes = R.anim.slide_out_left.takeIf { true }
                 ?: R.anim.slide_out_right)
@@ -214,4 +217,5 @@ class MarvelCharactersFragment :
     override fun getFragmentRepository(): MarvelCharactersRepository =
         MarvelCharactersRepository(apiClient.buildApi(ApiInterface::class.java))
 }
+
 

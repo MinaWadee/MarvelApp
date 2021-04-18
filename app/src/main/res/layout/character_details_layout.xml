@@ -38,8 +38,7 @@
                     android:id="@+id/CharacterImageID"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/mcu_background" />
+                    android:scaleType="centerCrop" />
 
                 <RelativeLayout
                     android:id="@+id/BackButtonRl"
@@ -50,11 +49,11 @@
                     android:rotationY="@integer/locale_mirror_flip">
 
                     <ImageView
+                        android:id="@+id/ArrowBackIV"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:layout_centerInParent="true"
                         android:rotationY="@integer/locale_mirror_flip"
-                        android:src="@drawable/back_arrow_black"
                         app:tint="@color/WhiteArrow" />
 
                 </RelativeLayout>

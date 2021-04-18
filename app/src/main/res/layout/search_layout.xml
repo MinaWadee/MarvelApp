@@ -1,32 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/SearchMainLayoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black_with_opacity"
     android:clickable="true"
-    android:focusable="true"
-    android:id="@+id/SearchMainLayoutID"
-    android:background="@color/black_with_opacity">
+    android:focusable="true">
 
-    <RelativeLayout
-        android:id="@+id/blur_frame"
+
+    <com.github.mmin18.widget.RealtimeBlurView
+        android:id="@+id/blurView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       android:layout_centerInParent="true">
-
-        <com.github.mmin18.widget.RealtimeBlurView
-            android:id="@+id/blurView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:realtimeOverlayColor="#8000"/>
-
-    </RelativeLayout>
-
-   <!-- <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#BF000000"/>-->
-
+        app:realtimeOverlayColor="#8000" />
 
 
     <RelativeLayout
@@ -34,13 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@drawable/search_bg"
-            android:layout_toStartOf="@+id/CancelSearchTVID"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:layout_toStartOf="@+id/CancelSearchTVID"
+            android:background="@drawable/search_bg"
             android:elevation="1dp">
 
 
@@ -51,20 +39,21 @@
                 android:layout_centerVertical="true"
                 android:padding="15dp"
                 android:scaleType="centerCrop"
-                app:tint="@color/white_Search_Icon"/>
+                app:tint="@color/white_Search_Icon" />
 
             <EditText
+                android:id="@+id/SearchFiledET"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/white_Search_Text"
                 android:layout_centerVertical="true"
-                android:hint="@string/SearchHint"
-                android:gravity="center_vertical"
-                android:inputType="text"
-                android:backgroundTint="@color/bpTransparent"
-                android:textColorHint="@color/white_Search_Text"
                 android:layout_toEndOf="@+id/search_button"
-                android:textSize="15sp"/>
+                android:backgroundTint="@color/bpTransparent"
+                android:gravity="center_vertical"
+                android:hint="@string/SearchHint"
+                android:inputType="text"
+                android:textColor="@color/white_Search_Text"
+                android:textColorHint="@color/white_Search_Text"
+                android:textSize="15sp" />
 
         </RelativeLayout>
 
@@ -73,10 +62,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
             android:text="@string/Cancel"
-            android:layout_centerVertical="true"
             android:textColor="@color/CancelColor"
             android:textSize="16sp" />
     </RelativeLayout>
@@ -85,11 +74,10 @@
         android:id="@+id/SearchResultRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
         android:layout_below="@+id/SearchContainerRL"
-        android:paddingTop="10dp"
         android:clipToPadding="false"
-        android:visibility="gone"/>
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.extremesolution.marvelapp.ui.home.ViewModels
+package com.extremesolution.marvelapp.ui.characterDetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

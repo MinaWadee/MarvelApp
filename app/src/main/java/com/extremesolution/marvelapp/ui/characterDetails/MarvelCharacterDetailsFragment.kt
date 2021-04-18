@@ -1,4 +1,4 @@
-package com.extremesolution.marvelapp.ui.home
+package com.extremesolution.marvelapp.ui.characterDetails
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,7 +23,6 @@ import com.extremesolution.marvelapp.ui.adapters.MarvelEventsAdapter
 import com.extremesolution.marvelapp.ui.adapters.MarvelSeriesAdapter
 import com.extremesolution.marvelapp.ui.adapters.MarvelStoriesAdapter
 import com.extremesolution.marvelapp.ui.base.BaseFragment
-import com.extremesolution.marvelapp.ui.home.ViewModels.CharacterDetailsViewModel
 import kotlinx.android.synthetic.main.character_details_layout.*
 
 
@@ -31,7 +30,8 @@ class MarvelCharacterDetailsFragment :
     BaseFragment<CharacterDetailsViewModel, CharacterDetailsLayoutBinding, CharacterDetailsRepository>() {
 
     companion object {
-        fun newInstance() = MarvelCharacterDetailsFragment()
+        fun newInstance() =
+            MarvelCharacterDetailsFragment()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,6 +45,8 @@ class MarvelCharacterDetailsFragment :
             .load(arguments?.getString("CharacterImg"))
             .placeholder(R.drawable.image_placeholder)
             .into(CharacterImageID)
+
+        Glide.with(requireContext()).load(R.drawable.back_arrow_black).into(ArrowBackIV)
 
 
 
@@ -121,6 +123,10 @@ class MarvelCharacterDetailsFragment :
                 }
             }
         })
+
+        BackButtonRl.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack()
+        }
 
         loadData(arguments?.getString("CharacterID"))
     }
