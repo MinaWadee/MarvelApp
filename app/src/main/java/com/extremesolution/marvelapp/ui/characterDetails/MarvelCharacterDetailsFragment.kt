@@ -5,18 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.extremesolution.marvelapp.R
 import com.extremesolution.marvelapp.data.models.ComicsModels.ComicsResult
 import com.extremesolution.marvelapp.data.models.EventsModels.EventsResult
 import com.extremesolution.marvelapp.data.models.StoriesModels.StoriesResult
-import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
 import com.extremesolution.marvelapp.data.models.characterList.SeriesModel.SeriesResult
 import com.extremesolution.marvelapp.data.network.ApiInterface
 import com.extremesolution.marvelapp.data.network.Resource
 import com.extremesolution.marvelapp.data.network.handleApiError
 import com.extremesolution.marvelapp.data.network.visible
+import com.extremesolution.marvelapp.data.repositories.CharacterDetailsRepository
 import com.extremesolution.marvelapp.databinding.CharacterDetailsLayoutBinding
 import com.extremesolution.marvelapp.ui.adapters.MarvelComicsAdapter
 import com.extremesolution.marvelapp.ui.adapters.MarvelEventsAdapter
@@ -40,6 +41,10 @@ class MarvelCharacterDetailsFragment :
         CharacterImageID.clipToOutline = true
 
         DescriptionOfTheCharacterTV.text = arguments?.getString("Description")
+        Toast.makeText(requireContext(),arguments?.getString("Description"),Toast.LENGTH_SHORT).show()
+        if (arguments?.getString("Description") != "") {
+            DescRl.visible(false)
+        }
         CharacterNameTV.text = arguments?.getString("CharacterName")
         Glide.with(requireContext())
             .load(arguments?.getString("CharacterImg"))
