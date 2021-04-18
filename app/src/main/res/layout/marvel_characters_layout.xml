@@ -34,7 +34,7 @@
             android:layout_marginEnd="20dp"
             android:padding="15dp"
             android:scaleType="centerCrop"
-            app:tint="@color/RedColor"/>
+            app:tint="@color/RedColor" />
 
         <TextView
             android:id="@+id/changeLanguageTV"
