@@ -59,6 +59,7 @@
         android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingTop="20dp"
+        android:backgroundTint="@color/white"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 

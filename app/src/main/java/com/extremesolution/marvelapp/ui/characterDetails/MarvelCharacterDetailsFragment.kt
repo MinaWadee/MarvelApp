@@ -39,10 +39,9 @@ class MarvelCharacterDetailsFragment :
         super.onViewCreated(view, savedInstanceState)
 
         CharacterImageID.clipToOutline = true
-
         DescriptionOfTheCharacterTV.text = arguments?.getString("Description")
-        Toast.makeText(requireContext(),arguments?.getString("Description"),Toast.LENGTH_SHORT).show()
-        if (arguments?.getString("Description") != "") {
+
+        if (arguments?.getString("Description") == "") {
             DescRl.visible(false)
         }
         CharacterNameTV.text = arguments?.getString("CharacterName")

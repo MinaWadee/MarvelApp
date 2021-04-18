@@ -80,8 +80,8 @@ class MarvelCharactersFragment :
 
 
         //To set loading style of load more and refresh
-        binding.MarvelCharactersListRVID.setLoadingMoreProgressStyle(3)
-        binding.MarvelCharactersListRVID.setRefreshProgressStyle(3)
+        binding.MarvelCharactersListRVID.setLoadingMoreProgressStyle(5)
+        binding.MarvelCharactersListRVID.setRefreshProgressStyle(5)
         //Recyclerview load more code
         binding.MarvelCharactersListRVID.setLoadingListener(object : LoadingListener {
             override fun onRefresh() {

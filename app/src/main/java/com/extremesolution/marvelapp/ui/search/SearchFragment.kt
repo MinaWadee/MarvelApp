@@ -39,7 +39,6 @@ class SearchFragment : BaseFragment<SearchViewModel, SearchLayoutBinding, Search
             }
             if (it.toString() == "") {
                 filteredList.clear()
-                filteredList.addAll(list!!)
             }
             val writtenCharacters = it.toString()
             getSearchResult(filteredList as ArrayList<CharacterResult>, writtenCharacters)
@@ -52,7 +51,6 @@ class SearchFragment : BaseFragment<SearchViewModel, SearchLayoutBinding, Search
 
         Glide.with(requireContext()).load(R.drawable.search_icon).into(search_button)
 
-        getSearchResult(list!!,"")
     }
 
     private fun getSearchResult(filteredList: ArrayList<CharacterResult>,
