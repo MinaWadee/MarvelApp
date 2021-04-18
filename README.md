@@ -77,4 +77,4 @@ Marvel-Mobile app is built on Android. If you are new in Android, please head ov
 
 # License & copyright
 
-Licensed under the [MIT License].(LICENSE)
+Licensed under the [MIT License](LICENSE).
